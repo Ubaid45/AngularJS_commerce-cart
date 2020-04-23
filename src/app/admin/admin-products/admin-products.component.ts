@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { ProductService } from './../../product.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class AdminProductsComponent implements OnInit {
   products$;
   constructor(private productService: ProductService) {
-    this.products$ = this.productService.getAll().valueChanges();
+    this.products$ = this.productService.getAll();
   }
 
   ngOnInit(): void {
