@@ -12,19 +12,8 @@ export class ProductCardComponent {
   @Input('show-actions') showActions = true;
   constructor(private cartService: ShoppingCartService) { }
 
-  addToCart(product: Product) {
-    //this.cartService.addToCart(this.product);
-    let cartId = localStorage.getItem('cartId');
-    if (!cartId) {
-      this.cartService.create().then(result => {
-        localStorage.setItem('cartId', result.key);
-        // Add product to the cart
-
-      });
-    }
-      else {
-       // Add product to the cart
-      }
+  addToCart() {
+    this.cartService.addToCart(this.product);
     }
   }
 
