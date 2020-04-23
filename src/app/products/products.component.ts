@@ -15,13 +15,11 @@ export class ProductsComponent {
 
   products : any;
   filteredProducts : Product[];
-  categories$;
   category: string;
   subscription: Subscription;
   constructor(
     route: ActivatedRoute,
-    productService: ProductService,
-    categoryService: CategoryService
+    productService: ProductService
   ) {
     productService.getAll().pipe(switchMap(products => {
       this.products = products;
@@ -34,6 +32,5 @@ export class ProductsComponent {
         this.products.filter(p => p.category === this.category) :
         this.products;
     })
-    this.categories$ = categoryService.getAll();
    }
 }
