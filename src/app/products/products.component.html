@@ -1,15 +1,24 @@
 <div class="row">
-    <ng-container *ngFor="let product of products$ | async; let i = index">
-        <div class="col">
-            <div class="card" style="width:25rem;">
-                <img *ngIf="product.imageUrl" class="card-img-top" [src]="product.imageUrl" alt="{{ product.title }}">
-                <div class="card-body">
-                    <h4 class="card-title">{{ product.title }}</h4>
-                    <p class="card-text">{{ product.price | currency:'USD':true }}</p>
+    <div class="col-3">
+        <ul class="list-group">
+            <li *ngFor="let category of categories$ | async" class="list-group-item"> {{category.name}}</li>
+        </ul>
+    </div>
+    <div class="col">
+        <div class="row">
+            <ng-container *ngFor="let product of products$ | async; let i = index">
+                <div class="col">
+                    <div class="card" style="width:25rem;">
+                        <img *ngIf="product.imageUrl" class="card-img-top" [src]="product.imageUrl" alt="{{ product.title }}">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ product.title }}</h4>
+                            <p class="card-text">{{ product.price | currency:'USD':true }}</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div *ngIf="(i+1)%2 === 0" class="w-100"></div>
-    </ng-container>
+                <div *ngIf="(i+1)%2 === 0" class="w-100"></div>
+            </ng-container>
 
+        </div>
+    </div>
 </div>
