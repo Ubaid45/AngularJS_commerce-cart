@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductFormComponent implements OnInit {
   categories$;
+  product = {};
 
   constructor(
    categoryService: CategoryService,
