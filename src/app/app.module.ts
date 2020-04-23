@@ -44,8 +44,8 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
     ProductFormComponent,
   ],
   imports: [
-    FormsModule,
     BrowserModule,
+    FormsModule,
     CustomFormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
