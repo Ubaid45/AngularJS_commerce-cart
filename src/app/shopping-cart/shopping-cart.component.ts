@@ -13,11 +13,12 @@ export class ShoppingCartComponent implements OnInit {
   cart$;
   constructor(private cartService: ShoppingCartService) { }
 
-  async ngOnInit(){
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-
+  async ngOnInit() {
     this.cart$ = await this.cartService.getCart();
-    };
+  };
+
+  clearCart() {
+    this.cartService.clearCart();
+  }
 
 }
