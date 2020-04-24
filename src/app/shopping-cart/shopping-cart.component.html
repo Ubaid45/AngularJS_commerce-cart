@@ -22,10 +22,11 @@
 
                         </td>
                         <td>
-                            {{ item.product.title }}
+                            {{ item.title }}
                         </td>
                         <td>
-                            {{ item.quantity }}
+                            <product-quantity [product]="item" [shopping-cart]="cart">
+                            </product-quantity>
                         </td>
                         <td class="text-right">
                             {{ item.totalPrice | currency:'USD':true }}
