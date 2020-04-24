@@ -11,13 +11,13 @@ export class ShoppingCart {
       let item = itemsMap[productId];
       let x = new ShoppingCartItem();
       Object.assign(x, item);
-      x.$key = productId;
+      x.key = productId;
       this.items.push(x);
      // this.items.push(new ShoppingCartItem({ ...item, $key: productId }));
     }
   }
 
-  getQuantity(product: any) {
+  getQuantity(product: Product) {
     let item = this.itemsMap[product.key];
     return item ? item.quantity : 0;
   }
