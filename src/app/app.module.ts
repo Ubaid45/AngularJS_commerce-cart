@@ -1,3 +1,4 @@
+import { OrderService } from './order.service';
 import { ShoppingCartService } from './shopping-cart.service';
 import { ProductService } from './product.service';
 import { CategoryService } from './category.service';
@@ -86,7 +87,8 @@ import { ShippingFormComponent } from './shipping-form/shipping-form.component';
     UserService,
     CategoryService,
     ProductService,
-    ShoppingCartService
+    ShoppingCartService,
+    OrderService
   ],
   bootstrap: [AppComponent]
 })
