@@ -20,12 +20,9 @@ export class OrderService {
     return this.db.list('/orders');
   }
 
-  /*getOrdersByUser(userId: string) {
-    return this.db.list('/orders', {
-      query: {
-        orderByChild: 'userId',
-        equalTo: userId
-      }
+  getOrdersByUser(userId: string) {
+    return this.db.list('/orders', ref => {
+      return ref.orderByChild('userId').equalTo(userId);
     });
-  }*/
+  }
 }
