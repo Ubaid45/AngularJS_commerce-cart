@@ -39,7 +39,7 @@ export class ProductsComponent implements OnInit{
   }
 
   async ngOnInit() {
-    this.subscription = (await this.cartService.getCart()).valueChanges()
+    this.subscription = (await this.cartService.getCart())
       .subscribe((cart) => this.cart = cart);
   }
 
