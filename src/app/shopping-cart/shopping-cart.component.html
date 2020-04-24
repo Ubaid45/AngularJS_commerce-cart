@@ -16,15 +16,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let item of cart.productIds">
+                        <tr *ngFor="let item of cart.items">
                             <td>
 
                             </td>
                             <td>
-                                {{ cart.items[item].product.title }}
+                                {{ item.product.title }}
                             </td>
                             <td>
-                                {{ cart.items[item].quantity }}
+                                {{ item.quantity }}
                             </td>
 
                         </tr>
