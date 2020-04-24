@@ -36,8 +36,8 @@ export class ShoppingCartService {
     let item$ = this.getItem(cartId, product.key);
     item$.valueChanges().pipe(take(1)).subscribe((item: any) => {
       let quantity = (item ? item.quantity : 0) + change;
-     // if (quantity === 0) item$.remove();
-      //else
+      if (quantity === 0) item$.remove();
+      else
       item$.update({
         title: product.title,
         imageUrl: product.imageUrl,
