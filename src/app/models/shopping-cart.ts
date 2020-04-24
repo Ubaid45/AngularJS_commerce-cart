@@ -5,7 +5,7 @@ export class ShoppingCart {
   items: ShoppingCartItem[] = [];
 
   constructor(public itemsMap: { [productId: string]: ShoppingCartItem }) {
-    this.itemsMap = itemsMap || {};
+    //this.itemsMap = itemsMap || {};
 
     for (let productId in itemsMap) {
       let item = itemsMap[productId];
@@ -13,12 +13,12 @@ export class ShoppingCart {
     }
   }
 
-
-  /*getQuantity(product: Product) {
-    let item = this.itemsMap[product.$key];
+  getQuantity(product: Product) {
+    console.log(this.itemsMap);
+    let item = this.itemsMap[product.key];
     return item ? item.quantity : 0;
   }
-*/
+
   get totalPrice() {
     let sum = 0;
     for (let productId in this.items)
