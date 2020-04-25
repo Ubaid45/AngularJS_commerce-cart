@@ -10,10 +10,7 @@ import { CustomFormsModule } from 'ng2-validation';
 import { AuthGuard } from 'shared/services/auth-guard.service';
 
 import { environment } from './../environments/environment';
-import { AdminAuthGuard } from './admin-auth-guard.service';
-import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
-import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
-import { ProductFormComponent } from './admin/product-form/product-form.component';
+import { AdminModule } from './admin/admin.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
@@ -41,9 +38,6 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     CheckOutComponent,
     OrderSuccessComponent,
     MyOrdersComponent,
-    AdminProductsComponent,
-    AdminOrdersComponent,
-    ProductFormComponent,
     ProductFilterComponent,
     ShippingFormComponent,
     ShoppingCartSummaryComponent,
@@ -51,6 +45,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
   imports: [
     BrowserModule,
     SharedModule,
+    AdminModule,
     FormsModule,
     CustomFormsModule,
     //DataTableModule,
@@ -68,15 +63,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
       { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard]},
       { path: 'order-success/:id', component: OrderSuccessComponent, canActivate: [AuthGuard]},
       { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard] },
-
-      { path: 'admin/products/new', component: ProductFormComponent, canActivate: [AuthGuard, AdminAuthGuard]},
-      { path: 'admin/products/:id', component: ProductFormComponent, canActivate: [AuthGuard, AdminAuthGuard]},
-      { path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuard, AdminAuthGuard]},
-      { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthGuard, AdminAuthGuard]}
     ])
-  ],
-  providers: [
-    AdminAuthGuard
   ],
   bootstrap: [AppComponent]
 })
