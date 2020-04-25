@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { CategoryService } from 'shared/services/category.service';
@@ -9,7 +9,7 @@ import { ProductService } from 'shared/services/product.service';
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.css']
 })
-export class ProductFormComponent implements OnInit {
+export class ProductFormComponent {
   categories$;
   product: any = {};
   id;
@@ -25,8 +25,6 @@ export class ProductFormComponent implements OnInit {
     if (this.id) this.productService.get(this.id).pipe(take(1)).subscribe(p => this.product = p);
   }
 
-  ngOnInit(): void {
-  }
   save(product) {
     if (this.id) this.productService.update(this.id, product);
     else this.productService.create(product);

@@ -1,3 +1,4 @@
+import { Product } from './../models/product';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { map } from 'rxjs/operators';
@@ -16,7 +17,7 @@ export class ProductService {
         .snapshotChanges().pipe(
         map(actions =>
           actions.map(a => ({
-            key: a.payload.key, ...(a.payload.val() as {})
+            key: a.payload.key, ...(a.payload.val() as Product)
           }))
         )
       );
