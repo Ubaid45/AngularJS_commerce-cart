@@ -12,6 +12,7 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { ProductsComponent } from './shopping/components/products/products.component';
 import { ShoppingModule } from './shopping/shopping.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 //import { DataTableModule } from 'angular-4-data-table';
 
@@ -29,7 +30,8 @@ import { ShoppingModule } from './shopping/shopping.module';
     RouterModule.forRoot([
       { path: '', component: ProductsComponent },
       { path: 'login', component: LoginComponent },
-    ])
+    ]),
+    NgbModule
   ],
   providers: [
     AdminAuthGuard,

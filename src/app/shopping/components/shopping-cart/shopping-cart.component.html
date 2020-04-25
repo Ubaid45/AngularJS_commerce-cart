@@ -1,21 +1,21 @@
 <h1>
     Shopping Cart</h1>
-<div class="row col-10" *ngIf="cart$ | async as cart">
+<div class="row col-10" *ngIf="cart$ | async as cart" style="margin: 0 auto;">
     <div class="card-body">
         <p>
-            You have {{ cart.totalItemsCount }} items in your shopping cart.
-            <button *ngIf="cart.items.length" (click)="clearCart()" class="float-right btn btn-light btn-sm">Clear Shopping Cart</button>
+            You have <b>{{ cart.totalItemsCount }}</b> items in your shopping cart.
+            <button *ngIf="cart.items.length" (click)="clearCart()" class="float-right btn btn-danger">Clear Shopping Cart</button>
 
         </p>
     </div>
 
-    <table class="table">
-        <thead>
+    <table id="tblproducts" class="table table-striped">
+        <thead class="thead-dark">
             <tr>
-                <th></th>
+                <th style="width: 200px"></th>
                 <th>Product</th>
-                <th class="text-center" style="width: 230px">Quantity</th>
-                <th class="text-right" style="width: 200px">Price</th>
+                <th style="width: 230px">Quantity</th>
+                <th class="text-center">Price</th>
             </tr>
         </thead>
         <tbody>
@@ -31,7 +31,7 @@
                     <product-quantity [product]="item" [shopping-cart]="cart">
                     </product-quantity>
                 </td>
-                <td class="text-right">
+                <td class="text-center">
                     {{ item.totalPrice | currency:'EUR':true }}
                 </td>
             </tr>
@@ -41,11 +41,11 @@
                 <th></th>
                 <th></th>
                 <th></th>
-                <th class="text-right">{{ cart.totalPrice | currency:'EUR':true }}</th>
+                <th class="text-center">{{ cart.totalPrice | currency:'EUR':true }}</th>
             </tr>
             <tr>
                 <th colspan="4">
-                    <a *ngIf="cart.items.length" routerLink="/check-out" class="btn btn-primary">Check Out</a>
+                    <a *ngIf="cart.items.length" routerLink="/check-out" class="float-right btn btn-primary">Check Out</a>
                 </th>
             </tr>
         </tfoot>
