@@ -13,7 +13,7 @@
                 <div class="input-group">
                     <input #price="ngModel" [(ngModel)]="product.price" name="price" id="price" type="number" class="form-control" required>
                     <div class="input-group-append">
-                        <span class="input-group-text">$</span>
+                        <span class="input-group-text">€</span>
                     </div>
                 </div>
                 <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
