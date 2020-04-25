@@ -11,9 +11,21 @@ $secondary-color: #c1d62e;
     border-color: $primary-color;
 }
 
+.navbar-light .navbar-brand {
+    color: $primary-color;
+}
+
+.container {
+    max-width: 1500px;
+}
+
 .btn-secondary {
     background-color: $secondary-color;
     border-color: $secondary-color;
+}
+
+.card-columns {
+    column-count: 2;
 }
 
 body {
