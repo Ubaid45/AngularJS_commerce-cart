@@ -1,5 +1,5 @@
 import { map } from 'rxjs/operators';
-import { ProductService } from './../../product.service';
+import { ProductService } from 'shared/services/product.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 

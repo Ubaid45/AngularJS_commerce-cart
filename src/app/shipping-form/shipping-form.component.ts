@@ -1,10 +1,10 @@
-import { OrderService } from './../order.service';
+import { OrderService } from 'shared/services/order.service';
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { ShoppingCart } from '../models/shopping-cart';
+import { ShoppingCart } from 'shared/models/shopping-cart';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
-import { Order } from '../models/order';
+import { AuthService } from 'shared/services/auth.service';
+import { Order } from 'shared/models/order';
 
 @Component({
   selector: 'shipping-form',
@@ -13,7 +13,7 @@ import { Order } from '../models/order';
 })
 export class ShippingFormComponent implements OnInit, OnDestroy {
   @Input('cart') cart: ShoppingCart;
-  shipping = {};
+  shipping: any = {};
   userSubscription: Subscription;
   userId: string;
 
