@@ -1,3 +1,5 @@
+import { ConfirmationDialogService } from './../../../shared/services/confirmation-dialog.service';
+import { Router } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ProductService } from 'shared/services/product.service';
@@ -9,14 +11,15 @@ import { DataTableResource } from 'angular5-data-table';
   templateUrl: './admin-products.component.html',
   styleUrls: ['./admin-products.component.css']
 })
-export class AdminProductsComponent implements OnInit, OnDestroy {
+export class AdminProductsComponent implements OnDestroy {
   products: Product[];
   subscription: Subscription;
   tableResource: DataTableResource<Product>;
   items: Product[] = [];
   itemCount: number;
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private router: Router, private confirmationDialogService: ConfirmationDialogService) {
+
     this.subscription = this.productService.getAll()
       .subscribe(products => {
         this.products = products;
@@ -51,7 +54,17 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  ngOnInit() {
+  delete(id) {
+    //if (!confirm('Are you sures you want to delete this product?')) return;
+    this.confirmationDialogService.confirm('Please confirm..', 'Are you sure! you really want to delete this product?')
+      .then((confirmed) => {
+        if (confirmed) {
+          this.productService.delete(id);
+          this.router.navigate(['/admin/products']);
+        }
+      })
+    .catch(() => console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'));
+
   }
 
 }

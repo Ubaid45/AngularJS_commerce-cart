@@ -18,6 +18,9 @@
     <data-table-column [property]="'$key'">
         <ng-template #dataTableCell let-item="item">
             <a [routerLink]="['/admin/products/', item.key]"><i class="fa fa-edit fa-2x"></i></a>
+            <a (click)="delete(item.key)" style="margin-left: 2em;">
+                <i class="fa fa-trash fa-2x"></i>
+            </a>
         </ng-template>
     </data-table-column>
 
