@@ -1,7 +1,6 @@
-import { map } from 'rxjs/operators';
-import { ProductService } from 'shared/services/product.service';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { ProductService } from 'shared/services/product.service';
 
 @Component({
   selector: 'app-admin-products',

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ShoppingCartService } from 'shared/services/shopping-cart.service';
 
 @Component({
@@ -19,6 +19,4 @@ export class ProductQuantityComponent {
   removeFromCart() {
     this.cartService.removeFromCart(this.product);
   }
-
-
 }

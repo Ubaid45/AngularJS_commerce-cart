@@ -1,9 +1,10 @@
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AngularFireDatabase, AngularFireDatabaseModule } from 'angularfire2/database';
-import { CustomFormsModule } from 'ng2-validation';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { CustomFormsModule } from 'ng2-validation';
 
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProductQuantityComponent } from './components/product-quantity/product-quantity.component';
@@ -14,7 +15,6 @@ import { OrderService } from './services/order.service';
 import { ProductService } from './services/product.service';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { UserService } from './services/user.service';
-import { AngularFireAuthModule } from 'angularfire2/auth';
 
 @NgModule({
   declarations: [
@@ -31,6 +31,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 
   ],
   exports: [
+    CommonModule,
     ProductCardComponent,
     ProductQuantityComponent,
     FormsModule,

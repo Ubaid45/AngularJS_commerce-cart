@@ -9,4 +9,3 @@ import { ShoppingCart } from 'shared/models/shopping-cart';
 export class ShoppingCartSummaryComponent  {
   @Input('cart') cart: ShoppingCart;
 }
-
