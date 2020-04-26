@@ -1,3 +1,4 @@
+import { ModalService } from './services/modal.service';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -17,7 +18,7 @@ import { OrderService } from './services/order.service';
 import { ProductService } from './services/product.service';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { UserService } from './services/user.service';
-import { NgbdModalContent } from './components/modal/modal.component';
+import {DefaultModalDialogComponent } from './components/modal/modal.component';
 
 //import { CustomFormsModule } from 'ngx-custom-validators';
 
@@ -27,7 +28,7 @@ import { NgbdModalContent } from './components/modal/modal.component';
     ProductCardComponent,
     ProductQuantityComponent,
     ConfirmationDialogComponent,
-    NgbdModalContent
+    DefaultModalDialogComponent
   ],
   imports: [
     CommonModule,
@@ -50,7 +51,7 @@ import { NgbdModalContent } from './components/modal/modal.component';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     NgbModule,
-    NgbdModalContent
+    DefaultModalDialogComponent
   ],
   providers: [
     AuthService,
@@ -60,7 +61,8 @@ import { NgbdModalContent } from './components/modal/modal.component';
     ProductService,
     ShoppingCartService,
     OrderService,
-    ConfirmationDialogService
+    ConfirmationDialogService,
+    ModalService
   ]
 })
 export class SharedModule { }

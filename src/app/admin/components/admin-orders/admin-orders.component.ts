@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { OrderService } from 'shared/services/order.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { NgbdModalContent } from 'shared/components/modal/modal.component';
+
+import { ModalService } from 'shared/services/modal.service';
 
 @Component({
   selector: 'app-admin-orders',
@@ -10,14 +10,20 @@ import { NgbdModalContent } from 'shared/components/modal/modal.component';
 })
 export class AdminOrdersComponent {
   orders$;
-
-  constructor(private orderService: OrderService, private modalService: NgbModal) {
+  order$;
+  myHTML;
+  constructor(private orderService: OrderService, private modalService: ModalService) {
     this.orders$ = this.orderService.getOrders().valueChanges();
     console.log(this.orders$);
   }
 
-  open() {
-    const modalRef = this.modalService.open(NgbdModalContent);
-    modalRef.componentInstance.name = 'World';
+  getOrder(id) {
+    this.order$ = this.orderService.getOrdersByUser(id).valueChanges();
+
+    console.log(this.orders$);
+    this.modalService.displayDataInModal("headerText", this.myHTML );
   }
+
+
+
 }
