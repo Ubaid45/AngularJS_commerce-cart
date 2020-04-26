@@ -17,6 +17,7 @@ import { OrderService } from './services/order.service';
 import { ProductService } from './services/product.service';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { UserService } from './services/user.service';
+import { NgbdModalContent } from './components/modal/modal.component';
 
 //import { CustomFormsModule } from 'ngx-custom-validators';
 
@@ -25,7 +26,8 @@ import { UserService } from './services/user.service';
   declarations: [
     ProductCardComponent,
     ProductQuantityComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    NgbdModalContent
   ],
   imports: [
     CommonModule,
@@ -47,7 +49,8 @@ import { UserService } from './services/user.service';
     //CustomFormsModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    NgbModule
+    NgbModule,
+    NgbdModalContent
   ],
   providers: [
     AuthService,
